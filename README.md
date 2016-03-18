@@ -73,6 +73,9 @@ Fired when inputValue changes
 #### modifierAutoComplete(newValue:String, modifierValue:Object)
 Fired when modifier has valid value
 
+#### enter(newValue:String)
+Fired when the enter key is hit
+
 #### escape()
 Fired when the escape key is hit
 
@@ -91,7 +94,7 @@ Once you got query string, you can deserialze it to object.
   search() {
     let queryString = get(this, 'queryString');
     console.log(queryString) // `before:2000-23-23 lorem`
-    let modifiers = deserializeQueryString(queryString);
+    let modifiers = deserializeQueryString(queryString, configHash);
     let before = modifiers['before:'];
     let { model, fullText, modifier, value } = before[0]; //first occurance of `before:`
     console.log(model); // moment date
